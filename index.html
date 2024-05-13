@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Quiz</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    <h1>Simple Quiz</h1>
+    <h2>True or False</h2>
+    <p>Goodluck!</p>   
+    <form id="quizForm">
+        <label for="q1">Question 1: A positive attitude is of great importance when it comes to empowerment strategies.</label><br>
+        <input type="radio" id="q1a" name="q1" value="a">True<br>
+        <input type="radio" id="q1b" name="q1" value="b">False<br>
+        <br>
+        <label for="q2">Question 2: Advocacy is enganging in purposeful action that will help people advance their rights, opportunities, causes and human dignity.</label><br>
+        <input type="radio" id="q2a" name="q2" value="a">True<br>
+        <input type="radio" id="q2b" name="q2" value="b">False<br>
+        <br>
+        <label for="q3">Question 3: Community assest include skills, interests, and experiences of individuals and local organizations.</label><br>
+        <input type="radio" id="q3a" name="q3" value="a">True<br>
+        <input type="radio" id="q3b" name="q3" value="b">False<br>
+        <br>
+        <label for="q4">Question 4:  If we do not provide the needed service, we will link you to those who do, this statement is a good principle for community action. </label><br>
+        <input type="radio" id="q4a" name="q4" value="a">True<br>
+        <input type="radio" id="q4b" name="q4" value="b">False<br>
+        <br>
+        <label for="q5">Question 5: Empowerment helps client make better decisions and control their own lives by increasing social barriers and limiting the ability to use their own power.</label><br>
+        <input type="radio" id="q5a" name="q5" value="a">True<br>
+        <input type="radio" id="q5b" name="q5" value="b">False<br>
+        <br>
+        <label for="q6">Question 6: You join a group that helps build houses for the poor. The statement is an example of advocacy.</label><br>
+        <input type="radio" id="q6a" name="q6" value="a">True<br>
+        <input type="radio" id="q6b" name="q6" value="b">False<br>
+        <br>
+        <label for="q7">Question 7: Strategy seeks to ensure that all people in the society are able to have their voice heard on the issues that are important to them.</label><br>
+        <input type="radio" id="q7a" name="q7" value="a">True<br>
+        <input type="radio" id="q7b" name="q7" value="b">False<br>
+        <br>
+        <label for="q8">Question 8: . Community action provides access to opportunities that people need to improve their lives.</label><br>
+        <input type="radio" id="q8a" name="q8" value="a">True<br>
+        <input type="radio" id="q8b" name="q8" value="b">False<br>
+        <br>
+        <label for="q9">Question 9: Self-confidence is an empowerment strategy that enables every member of the community to perform their roles and responsibilities well.</label><br>
+        <input type="radio" id="q9a" name="q9" value="a">True<br>
+        <input type="radio" id="q9b" name="q9" value="b">False<br>
+        <br>
+        <label for="q10">Question 10: Empowered People feel more confident, cooperative, and supportive in any organizations they belong.</label><br>
+        <input type="radio" id="q10a" name="q10" value="a">True<br>
+        <input type="radio" id="q10b" name="q10" value="b">False<br>
+        <br>
+        <button type="submit">Submit</button>
+        <button type="menu"><a href="https://kairiandfriends.wixsite.com/g12-cesc-module/services-1">Go Back</a></button>
+    </form>
+    <div id="results"></div>
+</body>
+<script>
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var score = 0;
+        var answers = {
+            q1: 'a',
+            q2: 'a',
+            q3: 'a',
+            q4: 'a',
+            q5: 'b',
+            q6: 'b',
+            q7: 'b',
+            q8: 'a',
+            q9: 'b',
+            q10: 'b',
+        };
+        for (var key in answers) {
+            if (answers.hasOwnProperty(key)) {
+                var userAnswer = document.querySelector('input[name="' + key + '"]:checked').value;
+                if (userAnswer === answers[key]) {
+                    score++;
+                }
+            }
+        }
+        document.getElementById('results').innerHTML = 'Your score is: ' + score + '/10';
+    });
+
+    
+</script>
+</html>
